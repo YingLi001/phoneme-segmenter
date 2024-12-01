@@ -5,7 +5,6 @@ from scipy.io import wavfile
 from transformers.utils.dummy_pt_objects import torch_distributed_zero_first
 import os
 import w2v2_predict
-# VAD is from here: @author: eesungkim
 from utils.vad import *
 
 from UnsupSeg import predict as seg_pred
