@@ -323,6 +323,16 @@ def generate_textgrid(segList, wav_path, tg_path, ML_TG_path):
 
 
 if __name__ == "__main__":
+    
+    # Inference one
+    wav_path = '/path/to/wav/file'
+    json_path = "path/to/json/file"
+    segList = seg_demo(wav_path,json_path)
+    print(segList)
+    tg_path = 'path/to/textgrid/file'
+    ML_TG_path = 'path/to/save/ML_generated_textgrid'
+    generate_textgrid(segList, wav_path, tg_path, ML_TG_path)
+
     # # Inference all samples
     # inpath = "/path/to/folder/"
     # for _f in tqdm(os.listdir(inpath)):
@@ -358,12 +368,3 @@ if __name__ == "__main__":
     #                         print("outpath_json",json_path)
     #                         segList = seg_demo(wav_path, json_path)
     #                         generate_textgrid(segList, wav_path, tg_path, ML_TG_path)
-
-    # Inference one
-    wav_path = '/path/to/wav/file'
-    json_path = "path/to/json/file"
-    segList = seg_demo(wav_path,json_path)
-    print(segList)
-    tg_path = 'path/to/textgrid/file'
-    ML_TG_path = 'path/to/save/ML_generated_textgrid'
-    generate_textgrid(segList, wav_path, tg_path, ML_TG_path)
