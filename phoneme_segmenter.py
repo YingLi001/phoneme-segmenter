@@ -5,8 +5,6 @@ from scipy.io import wavfile
 from transformers.utils.dummy_pt_objects import torch_distributed_zero_first
 import os
 import w2v2_predict
-# VAD is from here: @author: eesungkim
-from utils.vad import *
 
 from datasets import load_dataset, load_metric
 
@@ -43,7 +41,6 @@ def main():
     bias = 0.5
     # bias = float(sys.argv[1])
     print(bias)
-    use_vad = False
     #soft clean
     use_clean = True
     #False for midpoints, True for onset boundaries
@@ -57,7 +54,7 @@ def main():
     today_time = datetime.now(set_timezone).time()
     today_time_str = today_time.strftime("%H:%M:%S") 
     print("Time = ", today_date_str, today_time_str) 
-    experiment_name = str(bias)+"Bias-clean-"+str(use_clean)+"&"+str(clean_aggressive)+"-vad-"+str(use_vad)+"-midpoint-UnsupSeg-"+today_date_str+"-"+today_time_str+"-26750ckpt"
+    experiment_name = str(bias)+"Bias-clean-"+str(use_clean)+"&"+str(clean_aggressive)+"-midpoint-UnsupSeg-"+today_date_str+"-"+today_time_str+"-26750ckpt"
     experiment_path = '/path/to/experiment/result/dir'+experiment_name
 
     if not os.path.isdir(experiment_path+'/'):
@@ -121,7 +118,7 @@ def main():
     # Get the tokens
     wp = w2v2_predict.w2v2_predictor()
     wp.set_model(ckpt="/path/to/finetuned/ckpt")
-    def forcedAligner(wav_path, vad = use_vad, clean = use_clean, clean_agg = clean_aggressive):
+    def forcedAligner(wav_path, clean = use_clean, clean_agg = clean_aggressive):
         signalData, samplingFrequency = sf.read(wav_path)
 
         #Length of speech in seconds
@@ -269,7 +266,7 @@ def main():
         return segList
 
     def apply_forcedAligner(batch):
-        batch["predict_segs"] = forcedAligner(batch["file"], vad = use_vad, clean = use_clean, clean_agg = clean_aggressive)
+        batch["predict_segs"] = forcedAligner(batch["file"], clean = use_clean, clean_agg = clean_aggressive)
         return batch
 
     filename = experiment_path+"/processed_dataset.pickle"
@@ -454,7 +451,6 @@ def main():
     with open(experiment_path+'/metrics.txt', 'w') as f:
         sys.stdout = f
         print("Experiment Name:", experiment_name)
-        print("Use VAD:", use_vad)
         print("Use clean:", use_clean)
         print("Clean Aggressively:", clean_aggressive)
         print("Bias:", bias)
