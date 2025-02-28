@@ -6,7 +6,7 @@ Speech-language pathologists (S-LPs) routinely use phonetic transcription to pro
 Note: please set up the paths before running the code
 
 # Proposed architecture
-![Qualitative Results](https://github.com/YingLi001/phoneme-segmenter/blob/d11fdd3e1339be733cdb5cc744b57800325a1e27/samples/fig_01M_BL1_003A_ORANGE_no_TL_TL_comparison.pdf)
+![Phoneme segmenter architecture](figures/fig_phoneme_segmenter_architecture.pdf)
 
 # Evaluation metrics
 1. Phoneme recognition performance: phoneme error rate (PER)
@@ -22,4 +22,4 @@ Note: please set up the paths before running the code
 | 4   | Phoneme Segmenter TL                     | \begin{tabular}[c]{@{}l@{}}TIMIT |
 
 # Qualitative result
-![Qualitative Results](https://github.com/YingLi001/phoneme-segmenter/blob/d11fdd3e1339be733cdb5cc744b57800325a1e27/samples/fig_01M_BL1_003A_ORANGE_no_TL_TL_comparison.pdf)
+![Qualitative Results](figures/fig_01M_BL1_003A_ORANGE_no_TL_TL_comparison.pdf)
