@@ -16,8 +16,8 @@ Note: please set up the paths before running the code
 # Quantitative result
 | Exp | Model                                    | Dataset                          | PER  | P    | R    | $F_1$ | $R$-value |
 |-----|------------------------------------------|----------------------------------|------|------|------|-------|-----------|
-| 1   | \citeauthor{zhu2022phone}$\dagger$       | UltraSuite                       | 0.20 | 0.45 | 0.73 | 0.55  | 0.35      |
-| 2   | \citeauthor{ribeiro2019ultrasound}$\ast$ | UltraSuite                       | 0.63 | 0.75 | 0.70 | 0.73  | 0.76      |
+| 1   | Zhu, Zhang, and Jurgens                  | UltraSuite                       | 0.20 | 0.45 | 0.73 | 0.55  | 0.35      |
+| 2   | Ribeiro et al.                           | UltraSuite                       | 0.63 | 0.75 | 0.70 | 0.73  | 0.76      |
 | 3   | Phoneme Segmenter                        | UltraSuite                       | 0.15 | 0.82 | 0.82 | 0.82  | 0.85      |
 | 4   | Phoneme Segmenter TL                     | TIMIT, TORGO, UltraSuite         | 0.12 | 0.85 | 0.86 | 0.86  | 0.88      |
 
