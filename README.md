@@ -22,4 +22,4 @@ Note: please set up the paths before running the code
 | 4   | Phoneme Segmenter TL                     | \begin{tabular}[c]{@{}l@{}}TIMIT |
 
 # Qualitative result
-![Qualitative Results](figures/fig_01M_BL1_003A_ORANGE_no_TL_TL_comparison.pdf)
+![Qualitative Results](https://github.com/user-attachments/files/19021546/fig_phoneme_segmenter_for_ORANGE_no_TL.pdf)
